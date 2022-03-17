@@ -1,24 +1,32 @@
 import logo from './logo.svg';
 import './App.css';
+import Header from "./layout/Header.jsx"
+import Footer from "./layout/Footer.jsx"
+import Home from "./pages/Home.jsx"
+import About from "./pages/About.jsx"
+import UserResults from "./components/UserResults.jsx"
+import User from "./components/User.jsx"
+import {BrowserRouter as Router, Route, Routes} from "react-router-dom"
+import {GithubProvider} from "./context/GithubContext.jsx"
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <GithubProvider>
+    <Router>
+    <div className="App bodyDiv">
+    <Header />
+    <main>
+     <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/user/:login" element={<User />} />
+
+        <Route path="/about" element={<About />}/>
+     </Routes>
+    </main>
+    <Footer />
     </div>
+    </Router>
+    </GithubProvider>
   );
 }
 
