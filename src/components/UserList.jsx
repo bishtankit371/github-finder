@@ -3,7 +3,7 @@ import {Link} from "react-router-dom"
 function UserList({userId, avatar}){
 
 return (
-<div className="col-6">
+<div className="col-12">
 
   <div className="box my-2 d-flex">
   <img src={avatar} className="profile-img"/>

@@ -11,12 +11,12 @@ function UserResults(){
   // }, []);
 
 return (
-  <div className="row users-div">
+<>
     {users.map((user) =>(
       <UserList userId={user.login} avatar={user.avatar_url}/>
     ))}
-  </div>
-)
+  </>
+);
 
 }
 
